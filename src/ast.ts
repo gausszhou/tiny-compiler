@@ -1,8 +1,8 @@
 export enum NodeTypes {
-  Program,
-  Number,
-  String,
-  CallExpression,
+  Program = "Program",
+  NumberLiteral = "NumberLiteral",
+  StringLiteral = "StringLiteral",
+  CallExpression = "CallExpression",
 }
 
 export interface Node {
@@ -15,12 +15,12 @@ export interface ProgramNode extends Node {
 }
 
 export interface NumberNode extends Node {
-  type: NodeTypes.Number;
+  type: NodeTypes.NumberLiteral;
   value: string;
 }
 
 export interface StringNode extends Node {
-  type: NodeTypes.String;
+  type: NodeTypes.StringLiteral;
   value: string;
 }
 export interface CallExpressionNode extends Node {
@@ -41,14 +41,14 @@ export function createProgramNode(): ProgramNode {
 
 export function createNumberNode(value: string): NumberNode {
   return {
-    type: NodeTypes.Number,
+    type: NodeTypes.NumberLiteral,
     value,
   };
 }
 
 export function createStringNode(value: string): StringNode {
   return {
-    type: NodeTypes.String,
+    type: NodeTypes.StringLiteral,
     value,
   };
 }

@@ -31,7 +31,7 @@ test("TokenTypes.Number 4", () => {
   expect(tokenizer(code)).toEqual(tokens);
 });
 
-test("(add 1 2)", () => {
+test("tokenizer (add 1 2)", () => {
   const code = `(add 1 2)`;
   const tokens = [
     { type: TokenTypes.Paren, value: "(" },
@@ -43,7 +43,7 @@ test("(add 1 2)", () => {
   expect(tokenizer(code)).toEqual(tokens);
 });
 
-test("tokenizer", () => {
+test("tokenizer (add 2 (subtract 4 2))", () => {
   const code = `(add 2 (subtract 4 2))`;
   const tokens = [
     { type: TokenTypes.Paren, value: "(" },

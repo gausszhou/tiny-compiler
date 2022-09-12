@@ -10,7 +10,7 @@ test("number", () => {
     type: NodeTypes.Program,
     body: [
       {
-        type: NodeTypes.Number,
+        type: NodeTypes.NumberLiteral,
         value: "2",
       },
     ],
@@ -26,7 +26,7 @@ test("name", () => {
     type: NodeTypes.Program,
     body: [
       {
-        type: NodeTypes.String,
+        type: NodeTypes.StringLiteral,
         value: "hello",
       },
     ],
@@ -55,11 +55,11 @@ test("call expression (add 1 2);(add 3 4)", () => {
         name: "add",
         params: [
           {
-            type: NodeTypes.Number,
+            type: NodeTypes.NumberLiteral,
             value: "1",
           },
           {
-            type: NodeTypes.Number,
+            type: NodeTypes.NumberLiteral,
             value: "2",
           },
         ],
@@ -69,11 +69,11 @@ test("call expression (add 1 2);(add 3 4)", () => {
         name: "add",
         params: [
           {
-            type: NodeTypes.Number,
+            type: NodeTypes.NumberLiteral,
             value: "3",
           },
           {
-            type: NodeTypes.Number,
+            type: NodeTypes.NumberLiteral,
             value: "4",
           },
         ],
@@ -103,7 +103,7 @@ test("parser tokens to ast", () => {
         name: "add",
         params: [
           {
-            type: NodeTypes.Number,
+            type: NodeTypes.NumberLiteral,
             value: "2",
           },
           {
@@ -111,11 +111,11 @@ test("parser tokens to ast", () => {
             name: "subtract",
             params: [
               {
-                type: NodeTypes.Number,
+                type: NodeTypes.NumberLiteral,
                 value: "4",
               },
               {
-                type: NodeTypes.Number,
+                type: NodeTypes.NumberLiteral,
                 value: "2",
               },
             ],
