@@ -1,6 +1,6 @@
 import { NodeTypes } from "./ast";
 
-export function codegen(node: any): any {
+export function codegen(node: any): string | void {
   switch (node.type) {
     case NodeTypes.Program:
       return node.body.map(codegen).join("");
