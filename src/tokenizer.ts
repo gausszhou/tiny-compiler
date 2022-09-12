@@ -1,12 +1,12 @@
-export enum TokenType {
+export enum TokenTypes {
   Paren,
   Name,
   Number
 }
 
 export interface Token {
-  type: TokenType;
-  value: String;
+  type: TokenTypes;
+  value: string;
 }
 
 export function tokenizer(code: string) {
@@ -26,7 +26,7 @@ export function tokenizer(code: string) {
     // ( )
     if (char === "(" || char === ")") {
       tokens.push({
-        type: TokenType.Paren,
+        type: TokenTypes.Paren,
         value: char,
       });
       current++
@@ -40,7 +40,7 @@ export function tokenizer(code: string) {
         char = code[++current];
       }
       tokens.push({
-        type: TokenType.Name,
+        type: TokenTypes.Name,
         value: value,
       });
       continue
@@ -53,7 +53,7 @@ export function tokenizer(code: string) {
         char = code[++current];
       }
       tokens.push({
-        type: TokenType.Number,
+        type: TokenTypes.Number,
         value: value,
       });
     }
