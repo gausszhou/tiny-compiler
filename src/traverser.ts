@@ -1,6 +1,6 @@
 import { ProgramNode, NodeTypes, ChildNode, CallExpressionNode } from "./ast";
 
-type ParentNode = ProgramNode | CallExpressionNode;
+export type ParentNode = ProgramNode | CallExpressionNode;
 
 type methodFn = (node: ChildNode | ProgramNode, parent: ParentNode) => void;
 

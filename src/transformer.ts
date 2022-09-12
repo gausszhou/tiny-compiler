@@ -21,7 +21,6 @@ export function transformer(ast: ProgramNode) {
             arguments: [],
           };
           node.context = expression.arguments;
-
           if (parent.type !== NodeTypes.CallExpression) {
             expression = {
               type: "ExpressionStatement",
