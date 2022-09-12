@@ -1,8 +1,12 @@
-import { ProgramNode, NodeTypes, ChildNode } from "./ast";
+import { ProgramNode, NodeTypes, ChildNode, CallExpressionNode } from "./ast";
+
+type ParentNode = ProgramNode | CallExpressionNode;
+
+type methodFn = (node: ChildNode | ProgramNode, parent: ParentNode) => void;
 
 interface vistorOption {
-  enter(node: ChildNode | ProgramNode, parent: ChildNode | ProgramNode): void;
-  exit(node: ChildNode | ProgramNode, parent: ChildNode | ProgramNode): void;
+  enter: methodFn;
+  exit?: methodFn;
 }
 
 export interface Visitor {
@@ -16,13 +20,13 @@ export function traverser(rootNode: ProgramNode, visitor: Visitor) {
   // 1. 递归实现 BFS遍历
   // 2. 每个节点 调用 visitor
 
-  function traverseArray(array: ChildNode[], parent: ChildNode | ProgramNode) {
+  function traverseArray(array: ChildNode[], parent: ParentNode) {
     array.forEach((node) => {
       traverseNode(node, parent);
     });
   }
 
-  function traverseNode(node: ChildNode | ProgramNode, parent: ChildNode | ProgramNode) {
+  function traverseNode(node: ChildNode | ProgramNode, parent: ParentNode) {
     const methods = visitor[node.type];
     if (methods) {
       methods?.enter(node, parent);
@@ -37,7 +41,7 @@ export function traverser(rootNode: ProgramNode, visitor: Visitor) {
         traverseArray(node.body, node);
         break;
     }
-    if (methods) {
+    if (methods && methods.exit) {
       methods?.exit(node, parent);
     }
   }

@@ -12,6 +12,7 @@ export interface Node {
 export interface ProgramNode extends Node {
   type: NodeTypes.Program;
   body: any[];
+  context?: ChildNode[];
 }
 
 export interface NumberNode extends Node {

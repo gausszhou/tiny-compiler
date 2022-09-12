@@ -35,10 +35,10 @@ test("traverse", () => {
   const callCounts: Array<string | NodeTypes>[] = [];
   const visitor: Visitor = {
     Program: {
-      enter(node, parent) {
+      enter(node) {
         callCounts.push(["program-enter", node.type, ""]);
       },
-      exit(node, parent) {
+      exit(node) {
         callCounts.push(["program-exit", node.type, ""]);
       },
     },
