@@ -37,31 +37,31 @@ test("transformer", () => {
     type: NodeTypes.Program,
     body: [
       {
-        type: "ExpressionStatement",
+        type: NodeTypes.ExpressionStatement,
         expression: {
-          type: "CallExpression",
+          type: NodeTypes.CallExpression,
           callee: {
-            type: "Identifier",
+            type: NodeTypes.Identifier,
             name: "add",
           },
           arguments: [
             {
-              type: "NumberLiteral",
+              type: NodeTypes.NumberLiteral,
               value: "2",
             },
             {
-              type: "CallExpression",
+              type: NodeTypes.CallExpression,
               callee: {
-                type: "Identifier",
+                type: NodeTypes.Identifier,
                 name: "subtract",
               },
               arguments: [
                 {
-                  type: "NumberLiteral",
+                  type: NodeTypes.NumberLiteral,
                   value: "4",
                 },
                 {
-                  type: "NumberLiteral",
+                  type: NodeTypes.NumberLiteral,
                   value: "2",
                 },
               ],
